@@ -54,7 +54,7 @@ public class Project {
 		return _projectName;
 	}
 
-	public void set_projectName(String projectName) {
+	public void setProjectName(String projectName) {
 		this._projectName = projectName;
 	}
 
