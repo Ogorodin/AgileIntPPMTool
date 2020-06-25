@@ -26,12 +26,13 @@ public class ProjectController {
 	private ProjectService _projectService;
 
 	@Autowired
-	private MapValidationErrorService _errorService;
+	private MapValidationErrorService _mapValidationErrorService;
 
 	@PostMapping("")
 	public ResponseEntity<?> createNewProject(@Valid @RequestBody Project project, BindingResult result) {
 
-		_errorService.mapValidationService(result);
+		ResponseEntity<?> errorMap = _mapValidationErrorService.mapValidationService(result);
+		if(errorMap != null) return errorMap;
 
 		_projectService.saveOrUpdateProject(project);
 		return new ResponseEntity<Project>(project, HttpStatus.CREATED);
