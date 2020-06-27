@@ -19,113 +19,106 @@ public class Project {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	private Long _id;
+	private Long id;
 
-	@Column(name = "projectName")
 	@NotBlank(message = "Project name is required")
-	private String _projectName;
+	private String projectName;
 
-	@Column(name = "projectIdentifier", updatable = false, unique = true)
+	@Column(updatable = false, unique = true)
 	@NotBlank(message = "Project identifier is required")
 	@Size(min = 4, max = 5, message = "Please use 4 to 5 characters")
-	private String _projectIdentifier;
+	private String projectIdentifier;
 
-	@Column(name = "description")
 	@NotBlank(message = "Project description is required")
-	private String _description;
+	private String description;
 
-	@Column(name = "startDate")
 	@JsonFormat(pattern = "YYYY-MM-dd")
-	private Date _startDate;
+	private Date startDate;
 
-	@Column(name = "endDate")
 	@JsonFormat(pattern = "YYYY-MM-dd")
-	private Date _endDate;
+	private Date endDate;
 
-	@Column(name = "createdAt")
 	@JsonFormat(pattern = "YYYY-MM-dd")
-	private Date _createdAt;
+	private Date createdAt;
 
-	@Column(name = "updatedAt")
 	@JsonFormat(pattern = "YYYY-MM-dd")
-	private Date _updatedAt;
+	private Date updatedAt;
 
 	public Project() {
 	}
 
 	public Long getId() {
-		return _id;
+		return id;
 	}
 
 	public void setId(Long id) {
-		this._id = id;
+		this.id = id;
 	}
 
 	public String getProjectName() {
-		return _projectName;
+		return projectName;
 	}
 
 	public void setProjectName(String projectName) {
-		this._projectName = projectName;
+		this.projectName = projectName;
 	}
 
 	public String getProjectIdentifier() {
-		return _projectIdentifier;
+		return projectIdentifier;
 	}
 
 	public void setProjectIdentifier(String projectIdentifier) {
-		this._projectIdentifier = projectIdentifier;
+		this.projectIdentifier = projectIdentifier;
 	}
 
 	public String getDescription() {
-		return _description;
+		return description;
 	}
 
 	public void setDescription(String description) {
-		this._description = description;
+		this.description = description;
 	}
 
 	public Date getStartDate() {
-		return _startDate;
+		return startDate;
 	}
 
 	public void setStartDate(Date startDate) {
-		this._startDate = startDate;
+		this.startDate = startDate;
 	}
 
 	public Date getEndDate() {
-		return _endDate;
+		return endDate;
 	}
 
 	public void setEndDate(Date endDate) {
-		this._endDate = endDate;
+		this.endDate = endDate;
 	}
 
 	public Date getCreatedAt() {
-		return _createdAt;
+		return createdAt;
 	}
 
 	public void setCreatedAt(Date createdAt) {
-		this._createdAt = createdAt;
+		this.createdAt = createdAt;
 	}
 
 	public Date getUpdatedAt() {
-		return _updatedAt;
+		return updatedAt;
 	}
 
 	public void setUpdatedAt(Date updatedAt) {
-		this._updatedAt = updatedAt;
+		this.updatedAt = updatedAt;
 	}
 
 	@PrePersist
 	protected void onCreate() {
-		this._createdAt = new Date();
+		this.createdAt = new Date();
 	}
 
 	@PreUpdate
 	protected void onUpdate() {
-		this._updatedAt = new Date();
+		this.updatedAt = new Date();
 	}
 
 }
