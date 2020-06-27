@@ -1,17 +1,22 @@
 import React from "react";
+
 import "./App.css";
 import Dashboard from "./components/Dashboard";
 import Header from "./components/layout/Header";
+import AddProject from "./components/project/AddProject";
+
 import "bootstrap/dist/css/bootstrap.min.css";
-import ProjectItem from "./components/project/ProjectItem";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Dashboard />
-      <ProjectItem />
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/addProject" component={AddProject} />
+      </div>
+    </Router>
   );
 }
 
