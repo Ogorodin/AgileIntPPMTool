@@ -8,11 +8,11 @@ public class ProjectIdExceptionResponse {
 		this._projectIdentifier = projectIdentifier;
 	}
 
-	public String get_projectIdentifier() {
+	public String getProjectIdentifier() {
 		return _projectIdentifier;
 	}
 
-	public void set_projectIdentifier(String projectIdentifier) {
+	public void setProjectIdentifier(String projectIdentifier) {
 		this._projectIdentifier = projectIdentifier;
 	}
 
